@@ -25,10 +25,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+#fix `require': cannot load such file -- bcrypt_ext (LoadError)
+#I solve it with uninstall all bcrypt gem versions with gem uninstall bcrypt and select option 3 (if exist)
+# and uninstall all bcrypt-ruby gem versions with gem uninstall bcrypt-ruby and select option 3 (if exist)
+#then install bcrypt using gem install bcrypt --platform=ruby
+#then add this line gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw], that is it.
+gem 'bcrypt', '3.1.11', platforms: [:ruby, :x64_mingw]
 
 gem 'devise', '~> 4.4', '>= 4.4.3'
 
